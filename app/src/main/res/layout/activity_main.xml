@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#05070E"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Top Header Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.1"
+            android:text="TETRIS"
+            android:textColor="#00E5FF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnSoundToggle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Som"
+            android:src="@android:drawable/ic_lock_silent_mode_off"
+            app:tint="#00E5FF" />
+
+        <ImageButton
+            android:id="@+id/btnPause"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Pausar"
+            android:src="@android:drawable/ic_media_pause"
+            app:tint="#00E5FF" />
+    </LinearLayout>
+
+    <!-- Main Game Play Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <!-- Left Side Panel (Hold, Level, Lines) -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOLD"
+                android:textColor="#80D8FF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.example.myapplication.tetris.PiecePreviewView
+                android:id="@+id/holdPreview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NÍVEL"
+                android:textColor="#80D8FF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="LINHAS"
+                android:textColor="#80D8FF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Center Tetris Board View -->
+        <com.example.myapplication.tetris.TetrisView
+            android:id="@+id/tetrisView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Right Side Panel (Next, Score, Record) -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRÓXIMO"
+                android:textColor="#80D8FF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.example.myapplication.tetris.PiecePreviewView
+                android:id="@+id/nextPreview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PONTOS"
+                android:textColor="#80D8FF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#FFEA00"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="RECORDE"
+                android:textColor="#80D8FF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHighScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#00E676"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Controls Console -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Top Utility Row: Hold, Start/Restart, Hard Drop -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHold"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#303F9F"
+                android:fontFamily="sans-serif-bold"
+                android:text="HOLD 📦"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnStartRestart"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1.2"
+                android:backgroundTint="#00C853"
+                android:fontFamily="sans-serif-black"
+                android:text="NOVO JOGO 🎮"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnHardDrop"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D50000"
+                android:fontFamily="sans-serif-bold"
+                android:text="DROP ⏬"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Directional & Rotation Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLeft"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#1E88E5"
+                android:text="⬅️"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnRotateCCW"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#8E24AA"
+                android:text="↩️"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnRotateCW"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#8E24AA"
+                android:text="🔄"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnRight"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#1E88E5"
+                android:text="➡️"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- Down / Soft Drop Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDown"
+                android:layout_width="160dp"
+                android:layout_height="48dp"
+                android:layout_margin="3dp"
+                android:backgroundTint="#1565C0"
+                android:text="BAIXAR ⬇️"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
